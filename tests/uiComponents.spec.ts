@@ -167,3 +167,13 @@ test('Dynamic Date Picker test', async({page})=>{
     await expect(calendarInput).toHaveValue(dateToAssert)
 
 })
+
+test('Sliders', async({page})=>{
+
+    const tempatureGauge= page.locator('[tabtitle="Temperature"] ngx-temperature-dragger circle')
+    await tempatureGauge.evaluate(node =>{
+        node.setAttribute('cx', '232.630')
+        node.setAttribute('cy','232.630')
+    })
+    await tempatureGauge.click()
+})
