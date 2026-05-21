@@ -1,6 +1,7 @@
 import {expect, test} from '@playwright/test'
 import {NavigationPage} from '../page-objects/navigationPage'
 import {FormLayoutsPage} from '../page-objects/formLayoutsPage'
+import { DatePickerPage } from '../page-objects/datepickerPage'
 
 
 test.beforeEach('Before Each for URL', async({page})=>{
@@ -26,5 +27,15 @@ test('Form layout page', async({page})=>{
     await navigateTo.formLayoutsPage()
     await formLayoutsPage.submitUsingTheGridFormWithCredentialsAndSelectOption('jithin@test.com','1234','option 1')
     await formLayoutsPage.submitUsingInlineFormWithCredentialsANDCheckbox('jithin','test@test.com',false)
+
+})
+
+test('date picket test', async({page})=>{
+    const navigateTo=new NavigationPage(page)
+    const datePickerPage=new DatePickerPage(page)
+
+    await navigateTo.datePicketPage()
+    await datePickerPage.datePickeingFromCommonDatePicker(10)
+
 
 })
