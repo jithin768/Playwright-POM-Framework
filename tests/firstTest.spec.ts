@@ -57,8 +57,8 @@ test('Parent Elements', async({page})=>{
 test('Reusing the Elements', async({page})=>{
      
     const basicForm = page.locator('nb-card',{hasText:"Basic form"})
-    const EmailField=await basicForm.getByRole('textbox',{name:'Email'})
-    EmailField.fill("test@test.com")
+    const EmailField= basicForm.getByRole('textbox',{name:'Email'})
+    await EmailField.fill("test@test.com")
     await basicForm.getByRole('textbox',{name:'Password'}).fill("test")
     await basicForm.locator("nb-checkbox").click()
     await basicForm.getByRole("button",{name:'submit'}).click()
