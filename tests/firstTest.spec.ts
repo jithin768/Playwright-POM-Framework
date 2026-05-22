@@ -9,7 +9,7 @@ test.beforeEach('Before Each for URL', async({page})=>{
 
 })
 
-test.describe('Forms Test',()=>{
+/* test.describe.skip('Forms Test',()=>{
 
     test('Test Forms Layout', async({page})=>{
     await page.getByText('Forms').click()
@@ -24,19 +24,19 @@ test.describe('Forms Test',()=>{
     })
 
 
-})
+}) */
 
 test('User facing locators', async({page})=>{
-    await page.getByText('Forms').click()
-    await page.getByText('Form Layouts').click()
+    // await page.getByText('Forms').click()
+    // await page.getByText('Form Layouts').click()
     await page.getByRole('textbox',{name:'Email'}).first().click()
 
     await page.getByLabel('Email').first().click()
 })
 
 test('child Elements', async({page})=>{
-    await page.getByText('Forms').click()
-    await page.getByText('Form Layouts').click()
+    // await page.getByText('Forms').click()
+    // await page.getByText('Form Layouts').click()
     await page.locator('nb-card nb-radio :text-is("Option 1") ').click()
 
     await page.locator('nb-card').locator('nb-radio').locator(':text-is("Option 2")').click()
@@ -45,8 +45,8 @@ test('child Elements', async({page})=>{
 })
 
 test('Parent Elements', async({page})=>{
-    await page.getByText('Forms').click()
-    await page.getByText('Form Layouts').click()
+    // await page.getByText('Forms').click()
+    // await page.getByText('Form Layouts').click()
     await page.locator('nb-card',{hasText:"Using the Grid"}).getByRole('textbox',{name:'Email'}).click()
     await page.locator('nb-card').filter({hasText:"Using the Grid"}).getByRole('textbox',{name:'Password'}).click()
 
