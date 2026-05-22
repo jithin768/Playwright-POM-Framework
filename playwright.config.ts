@@ -36,6 +36,14 @@ export default defineConfig({
     //navigationTimeout:5000
   },
 
+  /* Start Angular dev server before running tests */
+  webServer: {
+    command: 'npm start',
+    url: 'http://localhost:4200',
+    reuseExistingServer: !process.env.CI,
+    timeout: 120000,
+  },
+
   /* Configure projects for major browsers */
   projects: [
     {
