@@ -1,7 +1,6 @@
 import {expect, test} from '@playwright/test'
-import {NavigationPage} from '../page-objects/navigationPage'
-import {FormLayoutsPage} from '../page-objects/formLayoutsPage'
-import { DatePickerPage } from '../page-objects/datepickerPage'
+import { PageManager } from '../page-objects/pageManager'
+
 
 
 test.beforeEach('Before Each for URL', async({page})=>{
@@ -12,30 +11,31 @@ test.beforeEach('Before Each for URL', async({page})=>{
 
 test('navigate to form page', async({page})=>{
 
-    const navigateTo=new NavigationPage(page)
-    await navigateTo.formLayoutsPage()
-    await navigateTo.datePicketPage()
-    await navigateTo.SmartTablePage()
-    await navigateTo.toastrPage()
-    await navigateTo.tooTipPage()
+    const pm=new PageManager(page)
+
+    
+    await pm.navigateTo().formLayoutsPage()
+    await pm.navigateTo().datePicketPage()
+    await pm.navigateTo().SmartTablePage()
+    await pm.navigateTo().toastrPage()
+    await pm.navigateTo().tooTipPage()
 })
 
 test('Form layout page', async({page})=>{
-    const navigateTo=new NavigationPage(page)
-    const formLayoutsPage=new FormLayoutsPage(page)
+    const pm=new PageManager(page)
+   
 
-    await navigateTo.formLayoutsPage()
-    await formLayoutsPage.submitUsingTheGridFormWithCredentialsAndSelectOption('jithin@test.com','1234','option 1')
-    await formLayoutsPage.submitUsingInlineFormWithCredentialsANDCheckbox('jithin','test@test.com',false)
+    await pm.navigateTo().formLayoutsPage()
+    await pm.onFormLayoutsPage().submitUsingTheGridFormWithCredentialsAndSelectOption('jithin@test.com','1234','option 1')
+    await pm.onFormLayoutsPage().submitUsingInlineFormWithCredentialsANDCheckbox('jithin','test@test.com',true)
 
 })
 
 test('date picket test', async({page})=>{
-    const navigateTo=new NavigationPage(page)
-    const datePickerPage=new DatePickerPage(page)
+    const pm=new PageManager(page)
 
-    await navigateTo.datePicketPage()
-    await datePickerPage.datePickeingFromCommonDatePicker(10)
+    await pm.navigateTo().datePicketPage()
+    await pm.onDatepicketPage().datePickeingFromCommonDatePicker(10)
 
 
 })
