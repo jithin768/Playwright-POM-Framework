@@ -9,7 +9,7 @@ test.beforeEach('Before Each for URL', async({page})=>{
 
 })
 
-/* test.describe.skip('Forms Test',()=>{
+test.describe.skip('Forms Test',()=>{
 
     test('Test Forms Layout', async({page})=>{
     await page.getByText('Forms').click()
@@ -24,7 +24,7 @@ test.beforeEach('Before Each for URL', async({page})=>{
     })
 
 
-}) */
+}) 
 
 test('User facing locators', async({page})=>{
     // await page.getByText('Forms').click()

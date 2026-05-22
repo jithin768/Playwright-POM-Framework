@@ -1,7 +1,7 @@
 import {Page} from '@playwright/test'
-import {NavigationPage} from '../page-objects/navigationPage'
-import {FormLayoutsPage} from '../page-objects/formLayoutsPage'
-import { DatePickerPage } from '../page-objects/datepickerPage'
+import {NavigationPage} from './navigationPage'
+import {FormLayoutsPage} from './formLayoutsPage'
+import { DatePickerPage } from './datepickerPage'
 
 export class PageManager {
   readonly page: Page
@@ -24,7 +24,7 @@ export class PageManager {
     return this.formLayoutsPage
   }
 
-  onDatepicketPage(){
+  onDatePickerPage(){
     return this.datePickerPage
   }
 
